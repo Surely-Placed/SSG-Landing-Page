@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -21,6 +22,8 @@ const contactSchema = z.object({
 type ContactValues = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
+  const [attachment, setAttachment] = useState<File | null>(null);
+
   const form = useForm<ContactValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -34,12 +37,25 @@ export function ContactForm() {
   });
 
   const onSubmit = async (values: ContactValues) => {
-    // Hook this up to your backend/email provider when ready.
-    // For now we just confirm submission locally.
-    // eslint-disable-next-line no-console
-    console.log("Contact form submit:", values);
-    toast.success("Message sent", { description: "We’ll get back to you within 1 business day." });
+    const subject = `SSG Contact: ${values.subject}`;
+    const bodyLines = [
+      `Name: ${values.name}`,
+      `Email: ${values.email}`,
+      values.phone ? `Phone: ${values.phone}` : null,
+      attachment ? `Attachment: ${attachment.name} (please attach this file in your email client before sending)` : null,
+      "",
+      values.message,
+    ].filter(Boolean) as string[];
+
+    const mailto = `mailto:contact@ssg-global.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+      bodyLines.join("\n"),
+    )}`;
+
+    // Open the user's email client with a pre-filled message (no broken/static submit).
+    window.location.href = mailto;
+    toast.success("Opening email client…", { description: "Send the message from your mail app to reach us." });
     form.reset();
+    setAttachment(null);
   };
 
   return (
@@ -118,6 +134,18 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
+        <div className="space-y-2">
+          <FormLabel>Attachment (optional)</FormLabel>
+          <Input
+            type="file"
+            onChange={(e) => setAttachment(e.target.files?.[0] ?? null)}
+            aria-describedby="attachment-help"
+          />
+          <p id="attachment-help" className="text-xs text-muted-foreground">
+            We’ll open your email client. Please attach the file there before sending.
+          </p>
+        </div>
 
         <div className="pt-2">
           <Button type="submit" className="w-full sm:w-auto">
