@@ -1,12 +1,12 @@
 "use client";
 
-import { BsAmazon, BsGoogle, BsSpotify, BsYoutube } from "react-icons/bs";
+import { BsAmazon, BsApple, BsGoogle, BsMicrosoft } from "react-icons/bs";
 
 const brands = [
-  { Icon: BsSpotify, label: "Spotify", color: "#1DB954" },
-  { Icon: BsYoutube, label: "YouTube", color: "#FF0000" },
   { Icon: BsAmazon, label: "Amazon", color: "#FF9900" },
   { Icon: BsGoogle, label: "Google", color: "#4285F4" },
+  { Icon: BsMicrosoft, label: "Microsoft", color: "#5E5E5E" },
+  { Icon: BsApple, label: "Apple", color: "#111111" },
 ] as const;
 
 const BrandRow = ({ reverse }: { reverse?: boolean }) => {

@@ -3,6 +3,7 @@ import { NavBar } from "@/components/ui/tubelight-navbar";
 import { Home, Users, Briefcase, Globe, Trophy, Mail, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navItems = [
   { name: "Home", url: "#", icon: Home },
@@ -15,16 +16,29 @@ const navItems = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    if (href && href !== "#") {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    } else if (href === "#") {
+    const isHash = href?.startsWith("#");
+
+    // If we're not on the landing page, navigate to it (supports "/#section") and let ScrollToTop handle scrolling.
+    if (location.pathname !== "/") {
+      if (href === "#") navigate("/");
+      else if (isHash) navigate(`/${href}`);
+      return;
+    }
+
+    if (href === "#") {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (isHash) {
+      const element = document.querySelector(href);
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+      else navigate(`/${href}`);
     }
   };
 

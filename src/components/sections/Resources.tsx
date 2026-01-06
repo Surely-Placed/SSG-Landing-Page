@@ -33,7 +33,7 @@ const carouselItems: CircularTestimonial[] = [
   },
   {
     name: "Recruiter Outreach Pack",
-    designation: "Template · Email + LinkedIn",
+    designation: "Template · Email Outreach",
     quote:
       "Templates that sound human, not spam—plus a follow-up cadence that boosts replies without being pushy.",
     // meeting / networking

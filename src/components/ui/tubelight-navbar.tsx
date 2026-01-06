@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface NavItem {
   name: string;
@@ -17,6 +18,8 @@ interface NavBarProps {
 export function NavBar({ items, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0].name);
   const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -63,13 +66,24 @@ export function NavBar({ items, className }: NavBarProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, name: string, url: string) => {
     e.preventDefault();
     setActiveTab(name);
-    if (url && url !== "#") {
-      const element = document.querySelector(url);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    } else if (url === "#") {
+    const isHash = url?.startsWith("#");
+
+    // If we're not on the landing page, navigate to it (supports "/#section") and let ScrollToTop handle scrolling.
+    if (location.pathname !== "/") {
+      if (url === "#") navigate("/");
+      else if (isHash) navigate(`/${url}`);
+      return;
+    }
+
+    if (url === "#") {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (isHash) {
+      const element = document.querySelector(url);
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+      else navigate(`/${url}`);
     }
   };
 

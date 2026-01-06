@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -21,11 +21,6 @@ const Footer = () => {
               Global career consultancy building lasting professional success 
               across continents since 2018.
             </p>
-            <div className="flex gap-4">
-              <SocialLink href="#" icon={<Linkedin className="h-5 w-5" />} label="LinkedIn" />
-              <SocialLink href="#" icon={<Twitter className="h-5 w-5" />} label="Twitter" />
-              <SocialLink href="#" icon={<Instagram className="h-5 w-5" />} label="Instagram" />
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -42,10 +37,10 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-heading font-semibold text-foreground">Services</h4>
             <ul className="space-y-3">
-              <FooterLink href="#">Career Mentorship</FooterLink>
-              <FooterLink href="#">Job Referrals</FooterLink>
-              <FooterLink href="#">Consultant Network</FooterLink>
-              <FooterLink href="#">Corporate Hiring</FooterLink>
+              <FooterLink href="/services/career-mentorship">Career Mentorship</FooterLink>
+              <FooterLink href="/services/job-referrals">Job Referrals</FooterLink>
+              <FooterLink href="/services/consultant-network">Consultant Network</FooterLink>
+              <FooterLink href="/services/corporate-hiring">Corporate Hiring</FooterLink>
             </ul>
           </div>
 
@@ -87,23 +82,23 @@ const Footer = () => {
 
 const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <li>
-    <a 
-      href={href} 
-      className="text-muted-foreground transition-colors hover:text-accent"
-    >
-      {children}
-    </a>
+    {href.startsWith("/") ? (
+      <Link to={href} className="text-muted-foreground transition-colors hover:text-accent">
+        {children}
+      </Link>
+    ) : href.startsWith("#") ? (
+      <Link to={`/${href}`} className="text-muted-foreground transition-colors hover:text-accent">
+        {children}
+      </Link>
+    ) : (
+      <a 
+        href={href} 
+        className="text-muted-foreground transition-colors hover:text-accent"
+      >
+        {children}
+      </a>
+    )}
   </li>
-);
-
-const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => (
-  <a 
-    href={href}
-    aria-label={label}
-    className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-  >
-    {icon}
-  </a>
 );
 
 export default Footer;
