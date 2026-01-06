@@ -3,6 +3,7 @@ import BlurText from "@/components/BlurText";
 import { CountAnimation } from "@/components/ui/count-animation";
 import Marquee from "@/components/ui/cards";
 import { useInView } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { useEffect, useRef, useState } from "react";
 
 const testimonials = [
@@ -38,6 +39,7 @@ const metrics = [
 ] as const;
 
 const SuccessStories = () => {
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement | null>(null);
   // More forgiving trigger for mobile while still requiring reaching the section.
   const isInView = useInView(sectionRef, { once: false, amount: 0.3, margin: "0px 0px -20% 0px" });
@@ -102,7 +104,8 @@ const SuccessStories = () => {
         {/* Testimonials */}
         <div className="mt-20">
           <Marquee
-            speed={30}
+            // Smaller value = faster marquee (seconds per loop)
+            speed={isMobile ? 10 : 30}
             row1={testimonials.map((t) => ({
               image: `https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200`,
               name: t.name,

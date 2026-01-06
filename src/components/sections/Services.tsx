@@ -1,7 +1,7 @@
 import { GraduationCap, FileCheck, Users, Rocket } from "lucide-react";
 import BlurText from "@/components/BlurText";
-import { motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
 const services = [
   {
@@ -27,19 +27,24 @@ const services = [
 ];
 
 const Services = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.35, margin: "0px 0px -30% 0px" });
   const [animationCycle, setAnimationCycle] = useState(0);
-  const prevInViewRef = useRef(false);
-
-  useEffect(() => {
-    const was = prevInViewRef.current;
-    if (!was && isInView) setAnimationCycle((c) => c + 1);
-    prevInViewRef.current = isInView;
-  }, [isInView]);
+  const inViewRef = useRef(false);
 
   return (
-    <section ref={sectionRef} id="services" className="bg-secondary py-24 lg:py-32">
+    <motion.section
+      id="services"
+      className="bg-secondary py-24 lg:py-32"
+      viewport={{ once: false, amount: 0.2 }}
+      onViewportEnter={() => {
+        if (!inViewRef.current) {
+          inViewRef.current = true;
+          setAnimationCycle((c) => c + 1);
+        }
+      }}
+      onViewportLeave={() => {
+        inViewRef.current = false;
+      }}
+    >
       <div className="container">
         {/* Header */}
         <div className="mx-auto max-w-6xl text-center">
@@ -66,7 +71,8 @@ const Services = () => {
           key={`services-${animationCycle}`}
           className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
           initial="hidden"
-          animate={isInView ? "show" : "hidden"}
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
           variants={{
             hidden: {},
             show: {
@@ -81,7 +87,7 @@ const Services = () => {
           ))}
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
