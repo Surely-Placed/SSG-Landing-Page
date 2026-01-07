@@ -50,7 +50,7 @@ type ServicePageTemplateProps = {
   backgroundImage: string;
   heroCtaText: string;
   heroCtaHref?: string;
-  stats: ServiceStat[];
+  stats?: ServiceStat[];
   values: ServiceValue[];
   steps: ServiceStep[];
   faqs: ServiceFaq[];
@@ -83,8 +83,8 @@ export default function ServicePageTemplate(props: ServicePageTemplateProps) {
         <HeroSection
           logo={{
             url: "",
-            alt: "SSG Global Logo",
-            text: "SSG Global",
+            alt: "SSG Consultant Logo",
+            text: "SSG Consultant",
           }}
           slogan={eyebrow}
           title={title}
@@ -95,9 +95,9 @@ export default function ServicePageTemplate(props: ServicePageTemplateProps) {
           }}
           backgroundImage={backgroundImage}
           contactInfo={{
-            website: "www.ssg-global.com",
-            phone: "+1 (555) 123-4567",
-            address: "Global Presence Across 10+ Countries",
+            website: "www.ssg-consultant.com",
+            phone: "+91 98XXX XXXXX",
+            address: "Bridge Talent × Intent",
           }}
           stats={stats}
         />

@@ -2,42 +2,23 @@ import { MapPin, Globe2 } from "lucide-react";
 import BlurText from "@/components/BlurText";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import AnimatedList from "@/components/ui/animated-list";
-import { CountAnimation } from "@/components/ui/count-animation";
-import { useInView } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 
 const regions = [
-  { name: "North America", countries: "USA, Canada", positions: 120 },
-  { name: "Europe", countries: "UK, Germany, Netherlands", positions: 200 },
-  { name: "Asia Pacific", countries: "Singapore, Australia", positions: 180 },
-  { name: "Middle East", countries: "UAE, Saudi Arabia", positions: 90 },
-  { name: "South Asia", countries: "India (Major Hub)", positions: 500 },
+  { name: "North America", countries: "USA, Canada" },
+  { name: "Europe", countries: "UK, Germany, Netherlands" },
+  { name: "Asia Pacific", countries: "Singapore, Australia" },
+  { name: "Middle East", countries: "UAE, Saudi Arabia" },
+  { name: "South Asia", countries: "India" },
 ];
 
 const GlobalPresence = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  // Start counting only when the user actually reaches this section.
-  // `margin` shrinks the observer viewport from the bottom so it doesn't trigger "early" on tall screens.
-  // Use a more forgiving threshold so it reliably triggers on mobile, while still requiring the user to reach the section.
-  const isInView = useInView(sectionRef, { once: false, amount: 0.3, margin: "0px 0px -20% 0px" });
-  const [animationCycle, setAnimationCycle] = useState(0);
-  const prevInViewRef = useRef(false);
-
   const items = useMemo(() => regions.map((r) => r.name), []);
   const [activeIndex, setActiveIndex] = useState(0);
   const activeRegion = regions[activeIndex] ?? regions[0];
 
-  // Re-run the count animation each time the user re-enters the section.
-  useEffect(() => {
-    const wasInView = prevInViewRef.current;
-    if (!wasInView && isInView) {
-      setAnimationCycle((c) => c + 1);
-    }
-    prevInViewRef.current = isInView;
-  }, [isInView]);
-
   return (
-    <section ref={sectionRef} id="global" className="relative overflow-hidden bg-background py-24 lg:py-32">
+    <section id="global" className="relative overflow-hidden bg-background py-24 lg:py-32">
       {/* Professional grid background */}
       <div className="pointer-events-none absolute inset-0">
         <GridPattern
@@ -63,10 +44,10 @@ const GlobalPresence = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <span className="text-sm font-semibold uppercase tracking-wider text-accent">
-                Global Reach
+                Global Presence
               </span>
               <BlurText
-                text="Connecting Talent Across 10+ Countries"
+                text="Career Architecture Across Markets"
                 delay={150}
                 animateBy="words"
                 direction="top"
@@ -76,25 +57,21 @@ const GlobalPresence = () => {
             </div>
 
             <p className="text-lg leading-relaxed text-muted-foreground">
-              With a strong presence in India and expanding networks across North America, 
-              Europe, and Asia-Pacific, SSG bridges the gap between ambitious professionals 
-              and world-class opportunities.
+              We operate across key regions to support global career moves, market-aware positioning, and execution strategies that match local hiring realities.
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-border bg-card/70 p-6 backdrop-blur-md">
-                <p className="flex items-baseline justify-start font-heading text-3xl font-bold text-foreground">
-                  {isInView ? <CountAnimation key={`countries-${animationCycle}`} number={10} /> : <span>10</span>}
-                  <span>+</span>
+                <p className="font-heading text-lg font-semibold text-foreground">Region-aware strategy</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Positioning and execution adapted to local norms and decision patterns.
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">Countries Covered</p>
               </div>
               <div className="rounded-2xl border border-border bg-card/70 p-6 backdrop-blur-md">
-                <p className="flex items-baseline justify-start font-heading text-3xl font-bold text-foreground">
-                  {isInView ? <CountAnimation key={`opps-${animationCycle}`} number={1000} /> : <span>1000</span>}
-                  <span>+</span>
+                <p className="font-heading text-lg font-semibold text-foreground">Global network</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Support for cross-border moves, pivots, and non-linear career transitions.
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">Active Opportunities</p>
               </div>
             </div>
 
@@ -107,17 +84,6 @@ const GlobalPresence = () => {
                 <div className="flex-1">
                   <p className="font-heading text-lg font-semibold text-foreground">{activeRegion.name}</p>
                   <p className="mt-1 text-sm text-muted-foreground">{activeRegion.countries}</p>
-                </div>
-                <div className="text-right">
-                  <p className="flex items-baseline justify-end font-heading text-xl font-bold text-accent">
-                    {isInView ? (
-                      <CountAnimation key={`positions-${animationCycle}-${activeRegion.name}`} number={activeRegion.positions} />
-                    ) : (
-                      <span>{activeRegion.positions}</span>
-                    )}
-                    <span>+</span>
-                  </p>
-                  <p className="text-xs text-muted-foreground">Positions</p>
                 </div>
               </div>
             </div>

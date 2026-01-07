@@ -13,13 +13,12 @@ const Footer = () => {
                 <span className="font-heading text-lg font-bold text-primary-foreground">S</span>
               </div>
               <div>
-                <p className="text-lg font-bold text-foreground">SSG Global</p>
-                <p className="text-xs tracking-wider text-muted-foreground">ELEVATE YOUR CAREER</p>
+                <p className="text-lg font-bold text-foreground">SSG Consultant</p>
+                <p className="text-xs tracking-wider text-muted-foreground">BRIDGE TALENT × INTENT</p>
               </div>
             </div>
             <p className="text-muted-foreground">
-              Global career consultancy building lasting professional success 
-              across continents since 2018.
+              We bridge the gap between Talent and Intent — blending strategic intervention with technological synergy.
             </p>
           </div>
 
@@ -37,10 +36,10 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-heading font-semibold text-foreground">Services</h4>
             <ul className="space-y-3">
-              <FooterLink href="/services/career-mentorship">Career Mentorship</FooterLink>
-              <FooterLink href="/services/job-referrals">Job Referrals</FooterLink>
-              <FooterLink href="/services/consultant-network">Consultant Network</FooterLink>
-              <FooterLink href="/services/corporate-hiring">Corporate Hiring</FooterLink>
+              <FooterLink href="/services/career-mentorship">Mentorship & Training</FooterLink>
+              <FooterLink href="/services/corporate-hiring">Professional Resume Building</FooterLink>
+              <FooterLink href="/services/job-referrals">Strategic Job Applications</FooterLink>
+              <FooterLink href="/services/consultant-network">Specialized Consultants</FooterLink>
             </ul>
           </div>
 
@@ -67,7 +66,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 lg:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SSG Global. All rights reserved.
+            © {new Date().getFullYear()} SSG Consultant. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <Link to="/privacy-poilicy" className="hover:text-foreground transition-colors">Privacy Policy</Link>

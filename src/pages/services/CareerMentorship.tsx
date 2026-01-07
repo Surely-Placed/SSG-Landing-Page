@@ -1,124 +1,117 @@
 import ServicePageTemplate from "./ServicePageTemplate";
-import { Award, Compass, GraduationCap, Target, Users, Zap } from "lucide-react";
+import { GraduationCap, Target, Zap, ArrowRightLeft, Brain, Workflow } from "lucide-react";
 import mentorshipHero from "@/assets/services/career-mentorship-hero.svg";
 
 export default function CareerMentorship() {
   return (
     <ServicePageTemplate
-      eyebrow="CAREER MENTORSHIP"
+      eyebrow="MENTORSHIP & TRAINING"
       title={
         <>
-          Your career, engineered with{" "}
-          <span className="text-primary">clarity</span> and{" "}
-          <span className="text-primary">momentum</span>
+          Unlock Your{" "}
+          <span className="text-primary">Potential.</span>
         </>
       }
-      subtitle="Get a focused roadmap, weekly execution systems, and 1:1 guidance from seasoned professionals — so you stop guessing and start compounding results."
+      subtitle="The professional world moves fast. Our training wing is built on Agile Learning Methodologies. We don’t just coach — we perform Cognitive Gap Analysis to identify and rectify professional friction points."
       backgroundImage={mentorshipHero}
-      heroCtaText="VIEW THE PROGRAM"
-      stats={[
-        { icon: <Users className="h-5 w-5" />, value: 1000, suffix: "+", label: "Professionals Mentored" },
-        { icon: <Target className="h-5 w-5" />, value: 12, suffix: "wk", label: "Roadmap Framework" },
-        { icon: <Award className="h-5 w-5" />, value: 3000, suffix: "+", label: "Success Stories" },
-        { icon: <Compass className="h-5 w-5" />, value: 10, suffix: "+", label: "Countries Supported" },
-      ]}
+      heroCtaText="TALK TO US"
       values={[
         {
           icon: <GraduationCap className="h-6 w-6" />,
-          title: "Role-fit clarity",
+          title: "Agile learning methodology",
           description:
-            "Define your target roles, positioning, and narrative with a practical plan that matches real hiring signals — not generic advice.",
+            "Learning that adapts to your feedback loop — fast iteration, real application, and measurable improvement.",
         },
         {
           icon: <Target className="h-6 w-6" />,
-          title: "Interview readiness",
+          title: "Cognitive gap analysis",
           description:
-            "Sharpen storytelling, case/tech performance, and executive presence with feedback loops that mirror real interview panels.",
+            "Identify and fix the exact friction points stopping your growth — not generic “tips”.",
         },
         {
           icon: <Zap className="h-6 w-6" />,
-          title: "Execution systems",
+          title: "Knowledge transfers",
           description:
-            "Weekly sprints, scorecards, and checkpoints to keep you moving — even when motivation dips.",
+            "High-impact frameworks that translate into performance — aligned to your role and market reality.",
         },
         {
-          icon: <Users className="h-6 w-6" />,
-          title: "1:1 mentor support",
+          icon: <Workflow className="h-6 w-6" />,
+          title: "Friction removal systems",
           description:
-            "A dedicated mentor to stress-test decisions, keep you accountable, and help you navigate tradeoffs with confidence.",
+            "We remove blockers in planning, execution, and communication so you can move from plateau to promotion.",
         },
         {
-          icon: <Award className="h-6 w-6" />,
-          title: "Portfolio & credibility",
+          icon: <Brain className="h-6 w-6" />,
+          title: "Strategic intervention",
           description:
-            "Make your profile undeniable with targeted artifacts: resume, LinkedIn, project framing, and measurable impact language.",
+            "Structured mentorship that changes decision quality — not just surface-level output.",
         },
         {
-          icon: <Compass className="h-6 w-6" />,
-          title: "Global market insight",
+          icon: <ArrowRightLeft className="h-6 w-6" />,
+          title: "Career architecture",
           description:
-            "Align your strategy with region-specific expectations (Singapore, UAE, EU, etc.) and reduce avoidable mistakes.",
+            "Build a long-term path with compounding leverage — skills, narrative, and execution aligned to intent.",
         },
       ]}
       steps={[
         {
-          title: "Strategy & baseline audit",
+          title: "Baseline & gap diagnosis",
           description:
-            "We assess your current profile, target roles, constraints, and timelines — then set measurable goals and a plan.",
+            "We map your current state and identify cognitive and execution gaps creating professional friction.",
         },
         {
-          title: "Positioning & materials",
+          title: "Agile learning sprints",
           description:
-            "Refine your narrative and rebuild assets (resume/LinkedIn/portfolio framing) to match hiring signals and keywords.",
+            "Short cycles of learning → practice → feedback, customized to your role and growth targets.",
         },
         {
-          title: "Interview performance",
+          title: "Skill-to-signal conversion",
           description:
-            "Run structured mocks with feedback: clarity, depth, tradeoffs, confidence, and leadership communication.",
+            "Convert skills into credible signals — storytelling, clarity, leadership communication, and execution quality.",
         },
         {
-          title: "Execution sprints",
+          title: "Plateau → promotion plan",
           description:
-            "Weekly action plan: networking targets, applications, follow-ups, and iteration — with accountability built in.",
+            "A practical roadmap for compounding progress — with accountability and iteration built in.",
         },
       ]}
       faqs={[
         {
-          q: "Is this only for students or early-career candidates?",
-          a: "No. We work across levels — from entry-level to senior leadership — and tailor the roadmap, artifacts, and interview prep accordingly.",
+          q: "Is this coaching or training?",
+          a: "It’s training built on agile learning and cognitive gap analysis — designed to remove friction and create measurable performance gains.",
         },
         {
-          q: "How long does it take to see results?",
-          a: "Most clients see clearer direction and improved response rates within 2–3 weeks once positioning and materials are aligned. Offers depend on market timing and role fit.",
+          q: "What’s the mission of this program?",
+          a: "Delivering high-impact knowledge transfers that move candidates from plateau to promotion.",
         },
         {
-          q: "Do you write my resume for me?",
-          a: "We provide a structured rewrite process and hands-on feedback. You’ll leave with a strong, truthful, measurable resume — and the ability to maintain it going forward.",
+          q: "Do you work with professionals who are already experienced?",
+          a: "Yes — this is especially effective for non-linear pivots, senior growth, and sharpening high-signal communication.",
         },
         {
-          q: "Can this work for international roles?",
-          a: "Yes. We adapt positioning, keywords, and interview expectations based on geography and industry norms.",
+          q: "Is it personalized?",
+          a: "Yes. We tailor the learning sprints and feedback loops to your intent, domain, and constraints.",
         },
       ]}
       related={[
         {
-          title: "Job Referrals",
-          description: "Strategic applications + referral pathways to increase interview volume and quality.",
+          title: "Strategic Job Applications",
+          description: "Apply smarter, not harder — positioning and execution that bypasses gatekeepers.",
           href: "/services/job-referrals",
         },
         {
-          title: "Consultant Network",
-          description: "Get matched with specialists who know your domain and hiring landscape.",
+          title: "Specialized Consultants",
+          description: "On-demand brainpower for deep-dive expertise and non-linear pivots.",
           href: "/services/consultant-network",
         },
         {
-          title: "Corporate Hiring",
-          description: "For companies: hire faster with consultant-led screening and shortlist quality.",
+          title: "Professional Resume Building",
+          description: "A high-conversion narrative — engineered for the 6-second recruiter window.",
           href: "/services/corporate-hiring",
         },
         {
           title: "Back to Landing",
-          description: "See our full story, global presence, and success metrics.",
+          description: "Read our mission, services, and the AI Lab vision.",
           href: "/",
         },
       ]}

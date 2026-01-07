@@ -1,125 +1,117 @@
 import ServicePageTemplate from "./ServicePageTemplate";
-import { BadgeCheck, Briefcase, Building2, Clock, Globe, Users } from "lucide-react";
+import { FileText, Target, ScanText, Sparkles, Eye, Layers } from "lucide-react";
 import corporateHero from "@/assets/services/corporate-hiring-hero.svg";
 
 export default function CorporateHiring() {
   return (
     <ServicePageTemplate
-      eyebrow="CORPORATE HIRING"
+      eyebrow="PROFESSIONAL RESUME BUILDING"
       title={
         <>
-          Hire globally with{" "}
-          <span className="text-primary">speed</span>,{" "}
-          <span className="text-primary">signal</span>, and{" "}
-          <span className="text-primary">confidence</span>
+          Let them know you,{" "}
+          <span className="text-primary">but, better.</span>
         </>
       }
-      subtitle="We help teams source, screen, and shortlist high-quality candidates — with consultant-led evaluation and market-aware hiring guidance."
+      subtitle="A great resume is a high-conversion marketing document, not a biography. We perform Career Archeology to extract high-leverage data points and rebuild them into a value-centric narrative — engineered for the recruiter’s 6-second cognitive window."
       backgroundImage={corporateHero}
-      heroCtaText="TALK TO OUR TEAM"
-      stats={[
-        { icon: <Building2 className="h-5 w-5" />, value: 500, suffix: "+", label: "Partner Companies" },
-        { icon: <Clock className="h-5 w-5" />, value: 30, suffix: "d", label: "Time-to-Hire Target" },
-        { icon: <BadgeCheck className="h-5 w-5" />, value: 92, suffix: "%", label: "Offer Acceptance" },
-        { icon: <Globe className="h-5 w-5" />, value: 10, suffix: "+", label: "Countries" },
-      ]}
+      heroCtaText="UPGRADE MY RESUME"
       values={[
         {
-          icon: <Users className="h-6 w-6" />,
-          title: "Curated shortlists",
+          icon: <FileText className="h-6 w-6" />,
+          title: "Value-centric narrative",
           description:
-            "We deliver quality over volume — candidates screened for role fit, capability, and communication.",
+            "We don’t list history — we rebuild your story around impact, leverage, and decision-maker clarity.",
         },
         {
-          icon: <BadgeCheck className="h-6 w-6" />,
-          title: "Signal-based screening",
+          icon: <Eye className="h-6 w-6" />,
+          title: "Visual hierarchy",
           description:
-            "Structured evaluation rubrics so you get consistent, defensible hiring decisions across interviewers.",
+            "Designed to win the 6-second scan: structure, spacing, emphasis, and readability that guides attention.",
         },
         {
-          icon: <Globe className="h-6 w-6" />,
-          title: "Global hiring nuance",
+          icon: <Sparkles className="h-6 w-6" />,
+          title: "Psychological framing",
           description:
-            "We align compensation bands, expectations, and process norms for each region to reduce drop-offs.",
+            "We frame your experience using language and sequencing that makes your value feel obvious.",
         },
         {
-          icon: <Clock className="h-6 w-6" />,
-          title: "Faster hiring loops",
+          icon: <ScanText className="h-6 w-6" />,
+          title: "Recruiter cognition-first",
           description:
-            "Tighter feedback cycles, better calibration, and reduced back-and-forth — without lowering standards.",
+            "Built to be skimmed fast — without losing nuance when the hiring manager reads deeper.",
         },
         {
-          icon: <Briefcase className="h-6 w-6" />,
-          title: "Role design support",
+          icon: <Target className="h-6 w-6" />,
+          title: "Role alignment",
           description:
-            "Define role scope and must-have signals so you attract the right candidates and avoid mis-hires.",
+            "We tailor your narrative to the target role so your experience maps instantly to what they’re hiring for.",
         },
         {
-          icon: <Building2 className="h-6 w-6" />,
-          title: "Employer brand storytelling",
+          icon: <Layers className="h-6 w-6" />,
+          title: "Career archaeology",
           description:
-            "We help craft messaging that resonates with senior talent — the difference between interest and pass.",
+            "We extract high-leverage data points and rebuild them into a clean, credible, high-signal document.",
         },
       ]}
       steps={[
         {
-          title: "Intake & calibration",
+          title: "Career archaeology",
           description:
-            "We align on role scope, must-have signals, compensation, and geography — then set the hiring plan.",
+            "We mine your experience for leverage points, metrics, and real signals that recruiters trust.",
         },
         {
-          title: "Sourcing & screening",
+          title: "Narrative rebuild",
           description:
-            "We source from our network and beyond, screen candidates using structured rubrics, and capture clean notes.",
+            "We restructure content into a value-centric narrative using visual hierarchy and psychological framing.",
         },
         {
-          title: "Shortlist delivery",
+          title: "Role-targeted refinement",
           description:
-            "You receive a curated shortlist with high-signal summaries, strengths/risks, and recommended interview focus areas.",
+            "We align keywords and signals to the role — without turning your resume into an ATS keyword dump.",
         },
         {
-          title: "Offer & closing support",
+          title: "Final polish",
           description:
-            "We help close: expectation management, negotiation guidance, and drop-off prevention for strong acceptance rates.",
+            "Clean formatting, clarity, and a final read for flow — engineered for scan + deep read.",
         },
       ]}
       faqs={[
         {
-          q: "What roles do you hire for?",
-          a: "We support a wide range: product, engineering, data, finance, operations, sales, and leadership. We’ll confirm fit during intake.",
+          q: "Do you just rewrite my resume?",
+          a: "We rebuild it. The goal is a high-conversion marketing document with strong signal design — not a prettier biography.",
         },
         {
-          q: "Do you replace internal recruiting?",
-          a: "No — we complement it. We add consultant-led screening and market nuance, and we can plug into your existing process.",
+          q: "Do you tailor it to a specific role?",
+          a: "Yes. We align your story to the target role’s signal expectations while keeping it truthful and credible.",
         },
         {
-          q: "Can you hire internationally/remotely?",
-          a: "Yes. We support global pipelines and can advise on region-specific expectations and process design.",
+          q: "Is this ATS-friendly?",
+          a: "Yes — but we prioritize human readability and recruiter cognition so you win both layers.",
         },
         {
-          q: "How fast can we start?",
-          a: "Typically within days. We begin with intake/calibration, then kick off sourcing and screening immediately after alignment.",
+          q: "What’s the mission of this service?",
+          a: "Manipulating the 6-second cognitive window of top-tier recruiters using advanced visual hierarchy and psychological framing.",
         },
       ]}
       related={[
         {
-          title: "Consultant Network",
-          description: "Tap specialists for calibration, screening rubrics, and interview design.",
+          title: "Specialized Consultants",
+          description: "On-demand brainpower for deep dives, pivots, and scaling decisions.",
           href: "/services/consultant-network",
         },
         {
-          title: "Career Mentorship",
-          description: "For candidates: upgrade readiness, narrative, and interview performance.",
+          title: "Mentorship & Training",
+          description: "Agile learning + cognitive gap analysis to remove performance friction.",
           href: "/services/career-mentorship",
         },
         {
-          title: "Job Referrals",
-          description: "For candidates: structured targeting + outreach systems to increase interviews.",
+          title: "Strategic Job Applications",
+          description: "Market arbitrage strategy to bypass gatekeepers and reach decision-makers.",
           href: "/services/job-referrals",
         },
         {
           title: "Back to Landing",
-          description: "Explore our global presence, success stories, and full service suite.",
+          description: "Read our mission, services, and the AI Lab vision.",
           href: "/",
         },
       ]}

@@ -1,80 +1,36 @@
-import { Globe2, FileText, Briefcase, Sparkles, Video } from "lucide-react";
+import { Brain, ScanText, Zap, Sparkles } from "lucide-react";
 import BlurText from "@/components/BlurText";
 import CircularTestimonials, { type CircularTestimonial } from "@/components/ui/circular-testimonials";
 import { GridPattern } from "@/components/ui/grid-pattern";
 
 const carouselItems: CircularTestimonial[] = [
   {
-    name: "Global Job Search Blueprint",
-    designation: "Guide · Market + Strategy",
+    name: "Resume.ai",
+    designation: "The AI Lab · Resume Intelligence",
     quote:
-      "A region-aware playbook for targeting roles in Europe, APAC, and North America—without wasting months on the wrong approach.",
-    // teamwork / hiring
-    src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=60",
-    href: "#resources",
+      "We’re building the AI that decodes the hidden criteria of the modern enterprise — ending the era of professional guesswork.",
+    src: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1600&q=60",
   },
   {
-    name: "Resume That Gets Interviews",
-    designation: "Insight · ATS + Hiring Manager",
+    name: "Precision",
+    designation: "Beats ATS at its own game",
     quote:
-      "Fix structure, impact, and keywords while staying human. Includes a simple scoring checklist you can reuse every time.",
-    // resume / laptop
-    src: "https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=1600&q=60",
-    href: "#resources",
+      "Analyzes job descriptions in real-time and aligns your resume to keywords and requirements with competitive benchmarking.",
+    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=60",
   },
   {
-    name: "FAANG Interview Prep Checklist",
-    designation: "Article · Structured Loop Prep",
+    name: "Speed",
+    designation: "Tailored in seconds",
     quote:
-      "A practical checklist that mirrors real hiring loops: behavioral signals, system design expectations, and coding clarity.",
-    // desk / planning
-    src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=60",
-    href: "#resources",
+      "Go from a generic draft to a role-aligned application fast — without losing clarity or structure.",
+    src: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1600&q=60",
   },
   {
-    name: "Recruiter Outreach Pack",
-    designation: "Template · Email Outreach",
+    name: "Insights",
+    designation: "Instant feedback",
     quote:
-      "Templates that sound human, not spam—plus a follow-up cadence that boosts replies without being pushy.",
-    // meeting / networking
-    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=60",
-    href: "#resources",
-  },
-  {
-    name: "Relocation Readiness Map",
-    designation: "Guide · Visa + Timeline",
-    quote:
-      "A realistic timeline for documents, approvals, and onboarding—so you can plan your move with confidence.",
-    // travel / passport / map
-    src: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1600&q=60",
-    href: "#resources",
-  },
-  {
-    name: "Salary Negotiation Scripts",
-    designation: "Mini Class · 5 Proven Scripts",
-    quote:
-      "Negotiation phrases that protect relationships and still raise your offer. Includes counter-offer and deadline handling.",
-    // negotiation / handshake
-    src: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=60",
-    href: "#resources",
-  },
-  {
-    name: "Leadership Signals That Convert",
-    designation: "Insight · STAR + Metrics",
-    quote:
-      "Turn vague leadership claims into measurable stories that hiring managers trust—especially for senior roles.",
-    // leadership / boardroom
-    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=60",
-    href: "#resources",
-  },
-  {
-    name: "Offer & Onboarding Validation",
-    designation: "Checklist · Avoid Surprises",
-    quote:
-      "Comp, role scope, team, visa support—validate the right things before you sign so your first 90 days are smooth.",
-    // contracts / paperwork
-    src: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=60",
-    href: "#resources",
+      "Get instant feedback on impact, readability, and alignment — designed for modern recruiting realities.",
+    src: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=60",
   },
 ];
 
@@ -100,10 +56,10 @@ const Resources = () => {
           {/* Header */}
           <div className="max-w-xl space-y-4">
             <span className="text-sm font-semibold uppercase tracking-wider text-accent">
-              Resources & Insights
+              Product · The AI Lab
             </span>
             <BlurText
-              text="Career Knowledge Hub"
+              text="Resume.ai: The Future of Career Tech"
               delay={150}
               animateBy="words"
               direction="top"
@@ -111,7 +67,54 @@ const Resources = () => {
               className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
             />
             <p className="text-lg text-muted-foreground">
-              Expert insights, guides, and resources to accelerate your career journey.
+              A sophisticated engine using NLP and predictive analytics to decode modern hiring criteria — providing real-time competitive benchmarking for candidates.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-2xl border border-border bg-card/70 p-6 shadow-soft">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-muted text-accent">
+                <ScanText className="h-6 w-6" />
+              </div>
+              <p className="font-heading font-semibold text-foreground">Precision</p>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Align to keywords and requirements in real-time — without turning your resume into noise.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card/70 p-6 shadow-soft">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-muted text-accent">
+                <Zap className="h-6 w-6" />
+              </div>
+              <p className="font-heading font-semibold text-foreground">Speed</p>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Go from a generic draft to a tailored application in seconds.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card/70 p-6 shadow-soft">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-muted text-accent">
+                <Brain className="h-6 w-6" />
+              </div>
+              <p className="font-heading font-semibold text-foreground">Insights</p>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Instant feedback on impact, clarity, and readability — built for modern recruiting.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card/70 p-6 shadow-soft">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-muted text-accent">
+                <Sparkles className="h-6 w-6" />
+              </div>
+              <p className="font-heading font-semibold text-foreground">Mission</p>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Building LLM-powered tools that reduce professional guesswork and raise signal quality.
             </p>
           </div>
         </div>

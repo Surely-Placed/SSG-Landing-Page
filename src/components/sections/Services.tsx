@@ -1,4 +1,4 @@
-import { GraduationCap, FileCheck, Users, Rocket } from "lucide-react";
+import { GraduationCap, FileText, Target, Users } from "lucide-react";
 import BlurText from "@/components/BlurText";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
@@ -7,27 +7,31 @@ import { Link } from "react-router-dom";
 const services = [
   {
     icon: <GraduationCap className="h-7 w-7" />,
-    title: "Career Preparation & Mentorship",
-    description: "Personalized guidance from industry veterans to craft your career trajectory and develop market-ready skills.",
+    title: "Mentorship & Training",
+    description:
+      "Agile learning, cognitive gap analysis, and high-impact knowledge transfers designed to move you from plateau to promotion.",
     href: "/services/career-mentorship",
   },
   {
-    icon: <FileCheck className="h-7 w-7" />,
-    title: "Job Applications & Referrals",
-    description: "Strategic application support with direct referrals to decision-makers at top global companies.",
+    icon: <FileText className="h-7 w-7" />,
+    title: "Professional Resume Building",
+    description:
+      "A high-conversion marketing document — rebuilt via career archaeology, visual hierarchy, and psychological framing for recruiter clarity.",
+    href: "/services/corporate-hiring",
+  },
+  {
+    icon: <Target className="h-7 w-7" />,
+    title: "Strategic Job Applications",
+    description:
+      "Apply smarter, not harder — market arbitrage strategies that bypass gatekeepers (ATS) through networking and technical optimization.",
     href: "/services/job-referrals",
   },
   {
     icon: <Users className="h-7 w-7" />,
-    title: "Consultant-Led Recruitment",
-    description: "Work with our network of expert consultants who understand the nuances of global hiring landscapes.",
+    title: "Specialized Consultants",
+    description:
+      "On-demand brainpower for non-linear career pivots and organizational scaling — tailored guidance grounded in strategy and execution.",
     href: "/services/consultant-network",
-  },
-  {
-    icon: <Rocket className="h-7 w-7" />,
-    title: "Offer & Onboarding Support",
-    description: "End-to-end assistance from offer negotiation to seamless onboarding at your new role.",
-    href: "/services/corporate-hiring",
   },
 ];
 
@@ -67,7 +71,7 @@ const Services = () => {
             />
           </div>
           <p className="mt-4 text-lg text-muted-foreground">
-            From first interview prep to C-suite negotiations, we cover every step of your career journey.
+            Strategic intervention + technological synergy — engineered to unlock human potential.
           </p>
         </div>
 

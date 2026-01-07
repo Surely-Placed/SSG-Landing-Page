@@ -1,123 +1,117 @@
 import ServicePageTemplate from "./ServicePageTemplate";
-import { Briefcase, FileCheck, Filter, Gauge, MessageSquare, Target } from "lucide-react";
+import { ArrowRightLeft, Brain, Filter, Target, Workflow, Zap } from "lucide-react";
 import referralsHero from "@/assets/services/job-referrals-hero.svg";
 
 export default function JobReferrals() {
   return (
     <ServicePageTemplate
-      eyebrow="JOB REFERRALS"
+      eyebrow="STRATEGIC JOB APPLICATIONS"
       title={
         <>
-          Turn applications into{" "}
-          <span className="text-primary">interviews</span> — with strategy, not spam
+          Apply Smarter,{" "}
+          <span className="text-primary">Not Harder.</span>
         </>
       }
-      subtitle="We optimize your targeting, materials, and outreach — then activate referral paths and recruiter-ready messaging to boost interview volume."
+      subtitle="This isn’t just recruitment; it’s Market Arbitrage. We analyze macro trends and industry shifts to position you ahead of the curve — crafting strategies that bypass gatekeepers (ATS) through networking and technical optimization."
       backgroundImage={referralsHero}
-      heroCtaText="SEE HOW WE DO IT"
-      stats={[
-        { icon: <Briefcase className="h-5 w-5" />, value: 500, suffix: "+", label: "Partner Companies" },
-        { icon: <Gauge className="h-5 w-5" />, value: 72, suffix: "h", label: "Fast Review SLA" },
-        { icon: <Target className="h-5 w-5" />, value: 3, suffix: "x", label: "Interview Uplift Goal" },
-        { icon: <Filter className="h-5 w-5" />, value: 10, suffix: "+", label: "Markets Covered" },
-      ]}
+      heroCtaText="LET'S START"
       values={[
         {
           icon: <Target className="h-6 w-6" />,
-          title: "Precision targeting",
+          title: "Opportunity discovery",
           description:
-            "Stop applying everywhere. We build a shortlist based on role-fit, seniority signals, and realistic conversion paths.",
-        },
-        {
-          icon: <FileCheck className="h-6 w-6" />,
-          title: "ATS + recruiter alignment",
-          description:
-            "Sharper keywords, stronger impact statements, and clean formatting that works for both scanners and humans.",
-        },
-        {
-          icon: <MessageSquare className="h-6 w-6" />,
-          title: "Outreach scripts that work",
-          description:
-            "Cold messages, follow-ups, and referral asks that feel natural and professional — not desperate or generic.",
-        },
-        {
-          icon: <Briefcase className="h-6 w-6" />,
-          title: "Referral pathways",
-          description:
-            "We help you activate warm introductions and structured referral loops where it’s appropriate and ethical.",
+            "Identify hidden opportunities and role clusters where your profile has the strongest leverage.",
         },
         {
           icon: <Filter className="h-6 w-6" />,
-          title: "Pipeline management",
+          title: "ATS bypass strategy",
           description:
-            "Track stages, next actions, and response patterns so you keep momentum and iterate quickly.",
+            "Technical optimization plus signal-first storytelling to get past automated filters without losing clarity.",
         },
         {
-          icon: <Gauge className="h-6 w-6" />,
-          title: "Weekly iteration",
+          icon: <Workflow className="h-6 w-6" />,
+          title: "Strategic application frameworks",
           description:
-            "We review what’s working and adjust targeting, messaging, and materials every week — compounding conversion.",
+            "Tailored application systems built around market movement — not random submissions.",
+        },
+        {
+          icon: <ArrowRightLeft className="h-6 w-6" />,
+          title: "Decision-maker access",
+          description:
+            "Networking and structured outreach to move your name in front of humans — not just bots.",
+        },
+        {
+          icon: <Brain className="h-6 w-6" />,
+          title: "Market arbitrage thinking",
+          description:
+            "Positioning you ahead of macro shifts with a strategy that adapts as the market moves.",
+        },
+        {
+          icon: <Zap className="h-6 w-6" />,
+          title: "High-velocity iteration",
+          description:
+            "Fast feedback loops to refine targeting, messaging, and execution until the system converts.",
         },
       ]}
       steps={[
         {
-          title: "Profile + role-fit audit",
+          title: "Market + profile calibration",
           description:
-            "We map your experience to market roles, define realistic targets, and identify gaps blocking callbacks.",
+            "Map your experience to market movement and define the highest-leverage role targets.",
         },
         {
-          title: "Materials + messaging",
+          title: "Application system design",
           description:
-            "Optimize resume, LinkedIn, and outreach scripts to match the exact roles you’re going for.",
+            "Create a repeatable framework for targeting, tailoring, and submitting applications with quality and speed.",
         },
         {
-          title: "Referral activation",
+          title: "ATS + networking execution",
           description:
-            "Create a repeatable system to ask for referrals and introductions with high-quality context and follow-ups.",
+            "Run parallel paths: technical optimization for ATS + human pathways through outreach and networking.",
         },
         {
-          title: "Pipeline + performance tuning",
+          title: "Iteration & conversion tuning",
           description:
-            "Track response rates, improve weak stages, and shift strategy based on evidence — not vibes.",
+            "Refine the system based on outcomes and signals — continuously improving conversion.",
         },
       ]}
       faqs={[
         {
-          q: "Do you guarantee referrals or interviews?",
-          a: "No — outcomes depend on market conditions and role fit. We focus on raising your conversion rates through targeting, positioning, and outreach quality.",
+          q: "Is this just applying to jobs for me?",
+          a: "No. This is designing and executing a strategic application framework — built around market arbitrage, ATS realities, and human decision paths.",
         },
         {
-          q: "Is it ethical to ask for referrals?",
-          a: "Yes, when done professionally. We help you build a respectful process with context, value, and clear consent.",
+          q: "What’s the mission here?",
+          a: "Executing strategic application frameworks that bypass traditional gatekeepers (ATS) through networking and technical optimization.",
         },
         {
-          q: "Do you apply on my behalf?",
-          a: "Typically no. We give you a system, scripts, and a pipeline so you can execute quickly and sustainably (and keep control).",
+          q: "Do you tailor applications per role?",
+          a: "Yes — we build a system that makes tailoring fast and repeatable without losing quality.",
         },
         {
-          q: "Can this work for international job searches?",
-          a: "Yes. We tailor targeting and messaging to region-specific recruiting norms and common selection patterns.",
+          q: "Is this for non-linear pivots too?",
+          a: "Absolutely. This is designed for pivots where signal design and narrative architecture matter most.",
         },
       ]}
       related={[
         {
-          title: "Career Mentorship",
-          description: "Build a stronger narrative and interview readiness for higher conversion and better offers.",
+          title: "Mentorship & Training",
+          description: "Cognitive gap analysis + agile learning to remove friction and accelerate growth.",
           href: "/services/career-mentorship",
         },
         {
-          title: "Consultant Network",
-          description: "Tap into specialists who understand your domain and can guide strategy with nuance.",
+          title: "Specialized Consultants",
+          description: "On-demand expert guidance for deep dives, pivots, and scaling.",
           href: "/services/consultant-network",
         },
         {
-          title: "Corporate Hiring",
-          description: "For companies: hire faster with high-signal screening and curated shortlists.",
+          title: "Professional Resume Building",
+          description: "A value-centric narrative engineered for recruiter cognition.",
           href: "/services/corporate-hiring",
         },
         {
           title: "Back to Landing",
-          description: "Explore our global presence, success stories, and full service suite.",
+          description: "Read our mission, services, and the AI Lab vision.",
           href: "/",
         },
       ]}

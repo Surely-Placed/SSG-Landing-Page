@@ -1,39 +1,32 @@
 import { HeroSection } from "@/components/ui/hero-section-2";
 import heroImage from "@/assets/hero-image.jpg";
-import { Award, Users, Globe, Briefcase } from "lucide-react";
 
 const Hero = () => {
   return (
     <HeroSection
       logo={{
         url: "",
-        alt: "SSG Global Logo",
-        text: "SSG Global"
+        alt: "SSG Consultant Logo",
+        text: "SSG Consultant"
       }}
-      slogan="ELEVATE YOUR CAREER"
+      slogan="BRIDGE TALENT × INTENT"
       title={
         <>
-          Building Global Careers,{" "}
-          <span className="text-primary">One Success Story</span> at a Time
+          Your Career Evolution,{" "}
+          <span className="text-primary">Engineered.</span>
         </>
       }
-      subtitle="Partner with SSG's elite network of career consultants to unlock opportunities at top global companies. 3000+ success stories. Your career transformation starts here."
+      subtitle="At SSG Consultant, we optimize human potential through Strategic Intervention and Technological Synergy — a high-performance ecosystem for polymaths at the intersection of data-driven strategy and empathetic mentorship."
       callToAction={{
-        text: "EXPLORE CAREERS",
-        href: "#services",
+        text: "LET'S COLLABORATE",
+        href: "#contact",
       }}
       backgroundImage={heroImage}
       contactInfo={{
-        website: "www.ssg-global.com",
-        phone: "+1 (555) 123-4567",
-        address: "Global Presence Across 10+ Countries",
+        website: "www.ssg-consultant.com",
+        phone: "+91 98XXX XXXXX",
+        address: "We bridge the gap between Talent and Intent",
       }}
-      stats={[
-        { icon: <Award className="h-5 w-5" />, value: 3000, suffix: "+", label: "Success Stories" },
-        { icon: <Users className="h-5 w-5" />, value: 1000, suffix: "+", label: "Students Mentored" },
-        { icon: <Globe className="h-5 w-5" />, value: 10, suffix: "+", label: "Countries" },
-        { icon: <Briefcase className="h-5 w-5" />, value: 500, suffix: "+", label: "Partner Companies" },
-      ]}
     />
   );
 };

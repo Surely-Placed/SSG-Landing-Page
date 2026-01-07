@@ -1,124 +1,117 @@
 import ServicePageTemplate from "./ServicePageTemplate";
-import { Globe, Layers, Sparkles, Users, Wand2, Workflow } from "lucide-react";
+import { Brain, Briefcase, Layers, Sparkles, Target, Wand2 } from "lucide-react";
 import networkHero from "@/assets/services/consultant-network-hero.svg";
 
 export default function ConsultantNetwork() {
   return (
     <ServicePageTemplate
-      eyebrow="CONSULTANT NETWORK"
+      eyebrow="SPECIALIZED CONSULTANTS"
       title={
         <>
-          Get matched with experts who know your{" "}
-          <span className="text-primary">industry</span> and{" "}
-          <span className="text-primary">market</span>
+          Expert Guidance{" "}
+          <span className="text-primary">On Demand.</span>
         </>
       }
-      subtitle="Our consultant network brings specialized hiring insight across geographies and domains — so your strategy fits the reality of how decisions get made."
+      subtitle='We provide "On-Demand Brainpower" for individuals and organizations navigating non-linear career pivots and organizational scaling. This is not coaching — this is market arbitrage for talent.'
       backgroundImage={networkHero}
-      heroCtaText="MEET THE NETWORK"
-      stats={[
-        { icon: <Users className="h-5 w-5" />, value: 200, suffix: "+", label: "Consultants" },
-        { icon: <Layers className="h-5 w-5" />, value: 15, suffix: "+", label: "Industries" },
-        { icon: <Globe className="h-5 w-5" />, value: 10, suffix: "+", label: "Geographies" },
-        { icon: <Workflow className="h-5 w-5" />, value: 24, suffix: "h", label: "Matching Target" },
-      ]}
+      heroCtaText="REQUEST A CONSULT"
       values={[
         {
           icon: <Sparkles className="h-6 w-6" />,
-          title: "Specialized guidance",
+          title: "Tailored solutions",
           description:
-            "Work with consultants who understand your domain: product, engineering, data, finance, operations, and more.",
+            "Deep-dive expertise aligned to your exact context — not generic playbooks.",
         },
         {
-          icon: <Globe className="h-6 w-6" />,
-          title: "Market-specific nuance",
+          icon: <Brain className="h-6 w-6" />,
+          title: "On-demand brainpower",
           description:
-            "Different regions hire differently. We align your approach to local expectations and decision-making patterns.",
+            "Strategic support when decisions are high-stakes: pivots, negotiation, role design, and execution tradeoffs.",
         },
         {
-          icon: <Workflow className="h-6 w-6" />,
-          title: "Fast matching",
+          icon: <Target className="h-6 w-6" />,
+          title: "Non-linear pivots",
           description:
-            "We pair you with the right consultant based on role, seniority, industry, and timeline — not random availability.",
+            "We help you design the narrative and strategy required to pivot credibly across roles, domains, and industries.",
         },
         {
           icon: <Wand2 className="h-6 w-6" />,
-          title: "Signal-based feedback",
+          title: "Workforce planning & transitions",
           description:
-            "Resume and interview feedback anchored in real hiring signals: scope, metrics, leadership, and tradeoffs.",
+            "For organizations and leaders: planning, transition management, and change navigation with strategic clarity.",
         },
         {
           icon: <Layers className="h-6 w-6" />,
-          title: "Multi-angle review",
+          title: "Organizational scaling",
           description:
-            "Get a second opinion where it matters: positioning, tech depth, strategy, and communication clarity.",
+            "Calibrate hiring, role scope, and growth systems — when the org needs to move faster without breaking.",
         },
         {
-          icon: <Users className="h-6 w-6" />,
-          title: "Confidence & accountability",
+          icon: <Briefcase className="h-6 w-6" />,
+          title: "Execution-grade guidance",
           description:
-            "You’ll always know the next best action — and you’ll have someone pushing you to execute consistently.",
+            "Not advice for advice’s sake — we translate strategy into next actions, systems, and measurable outcomes.",
         },
       ]}
       steps={[
         {
-          title: "Intake + matching",
+          title: "Intake & context mapping",
           description:
-            "We capture your goals, constraints, and target roles — then match you with the best-fit consultant.",
+            "We capture goals, constraints, and context — then define the real decision you need to make.",
         },
         {
-          title: "Deep-dive session",
+          title: "Deep-dive strategy session",
           description:
-            "We align on direction, narrative, and market expectations. You’ll leave with a prioritized action plan.",
+            "We unpack tradeoffs, design the narrative, and create a prioritized plan for execution.",
         },
         {
-          title: "Artifacts & interview prep",
+          title: "Tailored solution design",
           description:
-            "We iterate on resume/LinkedIn/portfolio framing and run targeted mocks with high-signal feedback.",
+            "Career transition, workforce planning, role design, or scaling — shaped to your domain and constraints.",
         },
         {
-          title: "Iteration & execution",
+          title: "Execution & iteration",
           description:
-            "We review progress weekly and refine based on outcomes: callbacks, interviews, and offer signals.",
+            "We refine based on outcomes and signals — keeping the system adaptable as reality changes.",
         },
       ]}
       faqs={[
         {
-          q: "How do you choose the right consultant?",
-          a: "We match by industry + role + seniority + geography. If the fit isn’t perfect after the first session, we’ll re-match quickly.",
+          q: "Is this coaching?",
+          a: "No. This is specialized consulting — on-demand brainpower for high-stakes decisions and non-linear pivots.",
         },
         {
-          q: "Can I work with multiple consultants?",
-          a: "Yes. Many clients do a primary consultant for strategy and a specialist for interview loops (e.g., system design or leadership).",
+          q: "Do you work with organizations too?",
+          a: "Yes — we support workforce planning, transition management, and scaling strategy.",
         },
         {
-          q: "Is this only for international moves?",
-          a: "No. The network supports domestic growth, leadership transitions, and cross-industry shifts too.",
+          q: "What kind of work do consultants do?",
+          a: "Deep dives: positioning, narrative design, role scope, strategy execution systems, and scaling alignment.",
         },
         {
-          q: "Do consultants help with referrals?",
-          a: "They can guide outreach strategy and messaging, and sometimes suggest pathways — but referrals are never guaranteed.",
+          q: "How fast can we start?",
+          a: "As soon as intake is complete — we move asynchronously and prioritize speed with clarity.",
         },
       ]}
       related={[
         {
-          title: "Career Mentorship",
-          description: "Structured 1:1 mentorship and weekly execution systems for consistent progress.",
+          title: "Mentorship & Training",
+          description: "Agile learning and cognitive gap analysis to remove performance friction.",
           href: "/services/career-mentorship",
         },
         {
-          title: "Job Referrals",
-          description: "Targeted applications + outreach systems designed to increase interview volume.",
+          title: "Strategic Job Applications",
+          description: "Market arbitrage strategy to bypass gatekeepers and reach decision-makers.",
           href: "/services/job-referrals",
         },
         {
-          title: "Corporate Hiring",
-          description: "For employers: consultant-led screening and curated global shortlists.",
+          title: "Professional Resume Building",
+          description: "Rebuild your story into a value-centric narrative for recruiter cognition.",
           href: "/services/corporate-hiring",
         },
         {
           title: "Back to Landing",
-          description: "Explore our global presence, success stories, and full service suite.",
+          description: "Read our mission, services, and the AI Lab vision.",
           href: "/",
         },
       ]}

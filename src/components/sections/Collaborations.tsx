@@ -1,81 +1,64 @@
 import BlurText from "@/components/BlurText";
-import { BrandScroller, BrandScrollerReverse } from "@/components/ui/brand-scoller";
-import { CountAnimation } from "@/components/ui/count-animation";
-import { useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Brain, Sparkles, Workflow } from "lucide-react";
 
 const Collaborations = () => {
-  const calloutRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(calloutRef, { once: false, amount: 0.55, margin: "0px 0px -35% 0px" });
-  const [animationCycle, setAnimationCycle] = useState(0);
-  const prevInViewRef = useRef(false);
-
-  useEffect(() => {
-    const was = prevInViewRef.current;
-    if (!was && isInView) setAnimationCycle((c) => c + 1);
-    prevInViewRef.current = isInView;
-  }, [isInView]);
-
   return (
     <section className="border-y border-border bg-background py-16 lg:py-20">
       <div className="container">
-        <div className="text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Trusted by professionals placed at
+            The Ecosystem
           </p>
-        </div>
-
-        {/* Partner logos loop */}
-        <div className="mt-10">
-          <div className="mx-auto max-w-6xl">
-            <BrandScroller />
-            <div className="mt-4" />
-            <BrandScrollerReverse />
-          </div>
-        </div>
-
-        {/* Consultant network callout */}
-        <div ref={calloutRef} className="mx-auto mt-16 max-w-3xl py-8 text-center lg:py-12">
-          <div className="flex justify-center">
+          <div className="mt-4 flex justify-center">
             <BlurText
-              text="Our Consultant Network"
+              text="Strategic Intervention × Technological Synergy"
               delay={150}
               animateBy="words"
               direction="top"
               repeat
-              className="w-full justify-center font-heading text-xl font-bold text-foreground lg:text-2xl"
+              className="w-full justify-center font-heading text-2xl font-bold text-foreground lg:text-3xl"
             />
           </div>
           <p className="mt-3 text-muted-foreground">
-            SSG's strength lies in our carefully vetted network of 200+ career consultants 
-            across industries. Each consultant brings deep domain expertise and genuine 
-            commitment to candidate success.
+            We’re scaling to bridge Generative AI and Career Architecture — building systems that elevate execution quality and signal clarity.
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-6">
-            <div className="text-center">
-              <p className="flex items-center justify-center font-heading text-2xl font-bold text-accent">
-                {isInView ? <CountAnimation key={`consultants-${animationCycle}`} number={200} /> : <span>0</span>}
-                <span>+</span>
-              </p>
-              <p className="text-sm text-muted-foreground">Active Consultants</p>
-            </div>
-            <div className="h-12 w-px bg-border" />
-            <div className="text-center">
-              <p className="flex items-center justify-center font-heading text-2xl font-bold text-accent">
-                {isInView ? <CountAnimation key={`industries-${animationCycle}`} number={15} /> : <span>0</span>}
-                <span>+</span>
-              </p>
-              <p className="text-sm text-muted-foreground">Industries Covered</p>
-            </div>
-            <div className="h-12 w-px bg-border" />
-            <div className="text-center">
-              <p className="flex items-center justify-center font-heading text-2xl font-bold text-accent">
-                {isInView ? <CountAnimation key={`years-${animationCycle}`} number={8} /> : <span>0</span>}
-                <span>+</span>
-              </p>
-              <p className="text-sm text-muted-foreground">Years Avg. Experience</p>
-            </div>
-          </div>
+        </div>
+
+        <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-3">
+          <Card className="rounded-2xl shadow-soft">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-muted text-accent">
+                <Workflow className="h-6 w-6" />
+              </div>
+              <CardTitle className="font-heading text-lg">Systems</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">
+              Workflows that compound: clarity → execution → iteration.
+            </CardContent>
+          </Card>
+          <Card className="rounded-2xl shadow-soft">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-muted text-accent">
+                <Brain className="h-6 w-6" />
+              </div>
+              <CardTitle className="font-heading text-lg">AI Lab</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">
+              LLM-powered tools for real-time competitive benchmarking.
+            </CardContent>
+          </Card>
+          <Card className="rounded-2xl shadow-soft">
+            <CardHeader className="flex flex-row items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-muted text-accent">
+                <Sparkles className="h-6 w-6" />
+              </div>
+              <CardTitle className="font-heading text-lg">Force Multipliers</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">
+              People who reinvent workflows — thriving in radical candor and hyper-growth.
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
