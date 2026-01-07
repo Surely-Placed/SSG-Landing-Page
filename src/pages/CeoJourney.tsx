@@ -166,7 +166,7 @@ export default function CeoJourney() {
                       </p>
                       <div className="pt-3">
                         <Button asChild variant="outline" className="rounded-full pointer-events-auto">
-                          <Link to="/#contact">
+                        <Link to="/?section=contact">
                             Book a call <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>
@@ -456,7 +456,7 @@ export default function CeoJourney() {
                     </p>
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                       <Button asChild className="rounded-full">
-                        <Link to="/#contact">
+                        <Link to="/?section=contact">
                           Talk to us <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>

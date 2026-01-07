@@ -88,7 +88,7 @@ const FooterLink = ({ href, children }: { href: string; children: React.ReactNod
         {children}
       </Link>
     ) : href.startsWith("#") ? (
-      <Link to={`/${href}`} className="text-muted-foreground transition-colors hover:text-accent">
+      <Link to={`/?section=${encodeURIComponent(href.slice(1))}`} className="text-muted-foreground transition-colors hover:text-accent">
         {children}
       </Link>
     ) : (

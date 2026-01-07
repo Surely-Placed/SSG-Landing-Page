@@ -85,22 +85,14 @@ export function NavBar({ items, className }: NavBarProps) {
       return;
     }
 
-    // If we're not on the landing page, navigate to it (supports "/#section") and let ScrollToTop handle scrolling.
-    if (location.pathname !== "/") {
-      if (url === "#") navigate("/");
-      else if (isHash) navigate(`/${url}`);
-      return;
-    }
-
     if (url === "#") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate("/");
       return;
     }
 
     if (isHash) {
-      const element = document.querySelector(url);
-      if (element) element.scrollIntoView({ behavior: "smooth" });
-      else navigate(`/${url}`);
+      const section = url.slice(1);
+      navigate(`/?section=${encodeURIComponent(section)}`);
     }
   };
 

@@ -15,7 +15,7 @@ const carouselItems: CircularTestimonial[] = [
       "Impact-first bullet rewriting with metrics",
       "Role clarity → faster callbacks",
     ],
-    href: "/#contact",
+    href: "/?section=contact",
     ctaText: "Request a demo",
   },
   {

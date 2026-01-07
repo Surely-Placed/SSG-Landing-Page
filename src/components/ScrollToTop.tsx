@@ -6,12 +6,17 @@ import { useLocation } from "react-router-dom";
  * Useful for legal pages opened from the footer.
  */
 export default function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
-    // If a hash is present, smooth-scroll to the anchored element (supports "/#section" from any route).
-    if (hash) {
-      const id = decodeURIComponent(hash);
+    // In HashRouter deployments, "#" is used for routing, so we use `?section=...` for in-page anchors.
+    const params = new URLSearchParams(search);
+    const section = params.get("section");
+
+    // Support both old hash-based anchors and the new query-based anchors.
+    const id = section ? `#${decodeURIComponent(section)}` : hash ? decodeURIComponent(hash) : "";
+
+    if (id) {
 
       // Defer until after route render/layout.
       window.requestAnimationFrame(() => {
@@ -26,7 +31,7 @@ export default function ScrollToTop() {
     }
 
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [pathname, hash]);
+  }, [pathname, search, hash]);
 
   return null;
 }

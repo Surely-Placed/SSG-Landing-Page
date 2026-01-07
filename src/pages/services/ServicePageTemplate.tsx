@@ -284,10 +284,10 @@ export default function ServicePageTemplate(props: ServicePageTemplateProps) {
                     </div>
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
                       <Button asChild size="lg" className="rounded-full">
-                        <Link to="/#contact">Book a free strategy call</Link>
+                        <Link to="/?section=contact">Book a free strategy call</Link>
                       </Button>
                       <Button asChild size="lg" variant="outline" className="rounded-full">
-                        <a href="/#services">Explore all services</a>
+                        <Link to="/?section=services">Explore all services</Link>
                       </Button>
                     </div>
                   </div>

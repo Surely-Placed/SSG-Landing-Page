@@ -29,22 +29,16 @@ const Header = () => {
       return;
     }
 
-    // If we're not on the landing page, navigate to it (supports "/#section") and let ScrollToTop handle scrolling.
-    if (location.pathname !== "/") {
-      if (href === "#") navigate("/");
-      else if (isHash) navigate(`/${href}`);
-      return;
-    }
-
     if (href === "#") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate("/");
       return;
     }
 
     if (isHash) {
-      const element = document.querySelector(href);
-      if (element) element.scrollIntoView({ behavior: "smooth" });
-      else navigate(`/${href}`);
+      const section = href.slice(1);
+      // Under HashRouter, we can't use `/#section` because # is reserved for routing.
+      // Use a query param so refresh works on Vercel and ScrollToTop can handle the scroll.
+      navigate(`/?section=${encodeURIComponent(section)}`);
     }
   };
 
