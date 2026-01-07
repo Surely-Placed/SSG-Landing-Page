@@ -146,39 +146,6 @@ export default function CeoJourney() {
           />
         </section>
 
-        {/* Hero quote card (below hero) */}
-        <section className="relative -mt-10 bg-background pb-10 md:-mt-14">
-          <div className="container relative">
-            <div className="mx-auto max-w-4xl">
-              <Card className="rounded-2xl border-border bg-background/80 backdrop-blur shadow-soft">
-                <CardContent className="p-6 sm:p-8">
-                  <div className="grid gap-5 md:grid-cols-[52px_1fr] md:items-start">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-muted text-accent">
-                      <Quote className="h-6 w-6" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-xl font-semibold text-foreground sm:text-2xl">
-                        “I’ve been trying for months with no responses.”
-                      </p>
-                      <p className="text-muted-foreground">
-                        That single sentence became the spark behind a repeatable playbook — and the foundation for
-                        Surely Placed.
-                      </p>
-                      <div className="pt-3">
-                        <Button asChild variant="outline" className="rounded-full pointer-events-auto">
-                        <Link to="/?section=contact">
-                            Book a call <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
         {/* Origin */}
         <section id="journey" className="bg-background py-20 lg:py-28">
           <div className="container">
