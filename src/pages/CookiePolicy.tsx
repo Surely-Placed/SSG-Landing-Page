@@ -66,7 +66,7 @@ const CookiePolicy = () => {
 
             <h2>Contact</h2>
             <p>
-              Questions about cookies? Email us at <a href="mailto:contact@ssg-global.com">contact@ssg-global.com</a>.
+              Questions about cookies? Email us at <a href="mailto:hr@ssggetjob.com">hr@ssggetjob.com</a>.
             </p>
           </section>
         </div>

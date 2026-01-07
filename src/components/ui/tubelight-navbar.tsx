@@ -33,6 +33,16 @@ export function NavBar({ items, className }: NavBarProps) {
 
   // Update active tab based on scroll position
   useEffect(() => {
+    // When we're on a routed page (e.g. /careers), highlight the matching item and skip scroll tracking.
+    const routeItem = items.find((i) => i.url.startsWith("/") && i.url === location.pathname);
+    if (routeItem) {
+      setActiveTab(routeItem.name);
+      return;
+    }
+
+    // Scroll tracking only makes sense on the landing page.
+    if (location.pathname !== "/") return;
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150;
 
@@ -45,7 +55,8 @@ export function NavBar({ items, className }: NavBarProps) {
       // Check each section from bottom to top
       for (let i = items.length - 1; i >= 0; i--) {
         const url = items[i].url;
-        if (url && url !== "#") {
+        // Only track hash sections (avoid trying to querySelector on routes like "/careers")
+        if (url?.startsWith("#")) {
           const element = document.querySelector(url);
           if (element) {
             const elementTop = element.getBoundingClientRect().top + window.scrollY;
@@ -61,12 +72,18 @@ export function NavBar({ items, className }: NavBarProps) {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [items]);
+  }, [items, location.pathname]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, name: string, url: string) => {
     e.preventDefault();
     setActiveTab(name);
     const isHash = url?.startsWith("#");
+    const isRoute = url?.startsWith("/");
+
+    if (isRoute) {
+      navigate(url);
+      return;
+    }
 
     // If we're not on the landing page, navigate to it (supports "/#section") and let ScrollToTop handle scrolling.
     if (location.pathname !== "/") {
@@ -107,12 +124,12 @@ export function NavBar({ items, className }: NavBarProps) {
               href={item.url}
               onClick={(e) => handleClick(e, item.name, item.url)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
+                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors whitespace-nowrap",
                 "text-foreground/80 hover:text-primary",
                 isActive && "bg-muted text-primary",
               )}
             >
-              <span className="hidden md:inline">{item.name}</span>
+              <span className="hidden md:inline whitespace-nowrap">{item.name}</span>
               <span className="md:hidden">
                 <Icon size={18} strokeWidth={2.5} />
               </span>

@@ -9,28 +9,56 @@ const carouselItems: CircularTestimonial[] = [
     designation: "The AI Lab · Resume Intelligence",
     quote:
       "We’re building the AI that decodes the hidden criteria of the modern enterprise — ending the era of professional guesswork.",
-    src: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1600&q=60",
+    src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=60",
+    highlights: [
+      "ATS-ready structure + keyword alignment",
+      "Impact-first bullet rewriting with metrics",
+      "Role clarity → faster callbacks",
+    ],
+    href: "/#contact",
+    ctaText: "Request a demo",
   },
   {
     name: "Precision",
     designation: "Beats ATS at its own game",
     quote:
       "Analyzes job descriptions in real-time and aligns your resume to keywords and requirements with competitive benchmarking.",
-    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=60",
+    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=60",
+    highlights: [
+      "JD-to-resume keyword mapping",
+      "Clean formatting recruiters scan fast",
+      "Market-tested resume patterns",
+    ],
+    href: "/services/corporate-hiring",
+    ctaText: "See resume service",
   },
   {
     name: "Speed",
     designation: "Tailored in seconds",
     quote:
       "Go from a generic draft to a role-aligned application fast — without losing clarity or structure.",
-    src: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1600&q=60",
+    src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=60",
+    highlights: [
+      "One resume per role type (not one for all)",
+      "Weekly tracking + follow-up system",
+      "10–15 high-quality applications/week",
+    ],
+    href: "/services/job-referrals",
+    ctaText: "Explore applications",
   },
   {
     name: "Insights",
     designation: "Instant feedback",
     quote:
       "Get instant feedback on impact, readability, and alignment — designed for modern recruiting realities.",
-    src: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=60",
+    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=60",
+    highlights: [
+      "What to fix first (highest ROI)",
+      "Interview readiness checkpoints",
+      "Referral strategy that converts",
+    ],
+    href: "/services/consultant-network",
+    ctaText: "Meet consultants",
   },
 ];
 
@@ -120,8 +148,8 @@ const Resources = () => {
         </div>
 
         {/* Resources carousel (image + side text) */}
-        <div className="mt-14 flex justify-center">
-          <CircularTestimonials testimonials={carouselItems} autoplay className="w-full" />
+        <div className="mt-20 flex justify-center">
+          <CircularTestimonials testimonials={carouselItems} autoplay showControls={false} className="w-full" />
         </div>
       </div>
     </section>

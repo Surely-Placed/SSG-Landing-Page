@@ -96,8 +96,8 @@ export default function ServicePageTemplate(props: ServicePageTemplateProps) {
           backgroundImage={backgroundImage}
           contactInfo={{
             website: "www.ssg-consultant.com",
-            phone: "+91 98XXX XXXXX",
-            address: "Bridge Talent × Intent",
+            phone: "+91 99878 15794",
+            address: "Gandhinagar, Gujarat, India",
           }}
           stats={stats}
         />

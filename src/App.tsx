@@ -8,11 +8,13 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Disclaimer from "./pages/Disclaimer";
+import Careers from "./pages/Careers";
 import CareerMentorship from "./pages/services/CareerMentorship";
 import JobReferrals from "./pages/services/JobReferrals";
 import ConsultantNetwork from "./pages/services/ConsultantNetwork";
 import CorporateHiring from "./pages/services/CorporateHiring";
 import ScrollToTop from "@/components/ScrollToTop";
+import CeoJourney from "./pages/CeoJourney";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/ceo-journey" element={<CeoJourney />} />
           <Route path="/services/career-mentorship" element={<CareerMentorship />} />
           <Route path="/services/job-referrals" element={<JobReferrals />} />
           <Route path="/services/consultant-network" element={<ConsultantNetwork />} />

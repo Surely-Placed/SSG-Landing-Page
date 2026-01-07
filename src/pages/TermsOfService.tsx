@@ -160,16 +160,12 @@ const TermsOfService = () => {
             <h2>13. Contact Information</h2>
             <p>If you have any questions about these Terms of Service, please contact us:</p>
             <p>
-              Email: <a href="mailto:legal@ssg-global.com">legal@ssg-global.com</a>
+              Email: <a href="mailto:hr@ssggetjob.com">hr@ssggetjob.com</a>
             </p>
             <p>
-              Address: SSG Global, Legal Department
+              Address: SSG Consultant
               <br />
-              Mumbai, India (HQ)
-              <br />
-              Singapore
-              <br />
-              Dubai, UAE
+              Gandhinagar, Gujarat, India
             </p>
           </section>
         </div>

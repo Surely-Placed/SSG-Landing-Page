@@ -9,11 +9,14 @@ export interface CircularTestimonial {
   designation: string;
   src: string;
   href?: string;
+  ctaText?: string;
+  highlights?: string[];
 }
 
 interface CircularTestimonialsProps {
   testimonials: CircularTestimonial[];
   autoplay?: boolean;
+  showControls?: boolean;
   className?: string;
 }
 
@@ -30,6 +33,7 @@ function calculateGap(width: number) {
 export default function CircularTestimonials({
   testimonials,
   autoplay = true,
+  showControls = true,
   className,
 }: CircularTestimonialsProps) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -135,10 +139,10 @@ export default function CircularTestimonials({
 
   return (
     <div className={cn("w-full max-w-6xl", className)}>
-      <div className="relative isolate grid gap-12 md:grid-cols-2 md:gap-16">
+      <div className="relative isolate grid gap-12 pt-8 md:grid-cols-2 md:gap-16 md:pt-10">
         {/* Images */}
         <div
-          className="relative z-0 h-[22rem] w-full rounded-3xl"
+          className="relative z-0 h-[22rem] w-full rounded-3xl md:h-[24rem]"
           ref={imageContainerRef}
           style={{ perspective: "1000px" }}
         >
@@ -194,36 +198,60 @@ export default function CircularTestimonials({
                   </motion.span>
                 ))}
               </motion.p>
+
+              {!!active.highlights?.length && (
+                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+                  {active.highlights.slice(0, 4).map((h) => (
+                    <li key={h} className="flex gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent/80" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </motion.div>
           </AnimatePresence>
 
           <div className="relative z-20 mt-8 flex flex-wrap items-center gap-3 md:mt-0 md:pt-10">
-            <button
-              type="button"
-              onClick={handlePrev}
-              onPointerDown={(e) => {
-                e.preventDefault();
-                handlePrev();
-              }}
-              aria-label="Previous"
-              className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/70 text-foreground shadow-soft backdrop-blur-md transition-colors hover:bg-muted"
-              style={{ touchAction: "manipulation" }}
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              onClick={handleNext}
-              onPointerDown={(e) => {
-                e.preventDefault();
-                handleNext();
-              }}
-              aria-label="Next"
-              className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/70 text-foreground shadow-soft backdrop-blur-md transition-colors hover:bg-muted"
-              style={{ touchAction: "manipulation" }}
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
+            {active.href && (
+              <a
+                className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-2 text-sm font-semibold text-foreground shadow-soft backdrop-blur-md transition-colors hover:bg-muted"
+                href={active.href}
+              >
+                {active.ctaText || "Learn more"} <span aria-hidden="true">→</span>
+              </a>
+            )}
+
+            {showControls && (
+              <>
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  onPointerDown={(e) => {
+                    e.preventDefault();
+                    handlePrev();
+                  }}
+                  aria-label="Previous"
+                  className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/70 text-foreground shadow-soft backdrop-blur-md transition-colors hover:bg-muted"
+                  style={{ touchAction: "manipulation" }}
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  onPointerDown={(e) => {
+                    e.preventDefault();
+                    handleNext();
+                  }}
+                  aria-label="Next"
+                  className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/70 text-foreground shadow-soft backdrop-blur-md transition-colors hover:bg-muted"
+                  style={{ touchAction: "manipulation" }}
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>

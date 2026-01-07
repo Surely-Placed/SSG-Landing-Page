@@ -28,6 +28,8 @@ const Footer = () => {
             <ul className="space-y-3">
               <FooterLink href="#about">About Us</FooterLink>
               <FooterLink href="#services">Our Services</FooterLink>
+              <FooterLink href="/ceo-journey">CEO Journey</FooterLink>
+              <FooterLink href="/careers">Careers</FooterLink>
               <FooterLink href="#contact">Contact Us</FooterLink>
             </ul>
           </div>
@@ -49,15 +51,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-accent" />
-                <span>contact@ssg-global.com</span>
+                <span>hr@ssggetjob.com</span>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="h-4 w-4 text-accent" />
-                <span>+91 98XXX XXXXX</span>
+                <span>+91 99878 15794</span>
               </li>
               <li className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="h-4 w-4 mt-0.5 text-accent" />
-                <span>Mumbai, India (HQ)<br />Singapore • Dubai</span>
+                <span>Gandhinagar, Gujarat, India</span>
               </li>
             </ul>
           </div>

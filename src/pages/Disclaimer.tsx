@@ -132,16 +132,12 @@ const Disclaimer = () => {
             <h2>12. Contact Information</h2>
             <p>If you have any questions about this Disclaimer, please contact us:</p>
             <p>
-              Email: <a href="mailto:support@ssg-global.com">support@ssg-global.com</a>
+              Email: <a href="mailto:hr@ssggetjob.com">hr@ssggetjob.com</a>
             </p>
             <p>
-              Address: SSG Global, Support Department
+              Address: SSG Consultant
               <br />
-              Mumbai, India (HQ)
-              <br />
-              Singapore
-              <br />
-              Dubai, UAE
+              Gandhinagar, Gujarat, India
             </p>
           </section>
         </div>

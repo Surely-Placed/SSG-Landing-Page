@@ -37,15 +37,15 @@ const Contact = () => {
               <div className="space-y-6 text-left">
                 <div>
                   <p className="text-sm font-semibold text-foreground">Email</p>
-                  <p className="mt-1 text-muted-foreground">contact@ssg-global.com</p>
+                  <p className="mt-1 text-muted-foreground">hr@ssggetjob.com</p>
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Phone</p>
-                  <p className="mt-1 text-muted-foreground">+91 98XXX XXXXX</p>
+                  <p className="mt-1 text-muted-foreground">+91 99878 15794</p>
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Locations</p>
-                  <p className="mt-1 text-muted-foreground">Mumbai (HQ) • Singapore • Dubai</p>
+                  <p className="mt-1 text-muted-foreground">Gandhinagar, Gujarat, India</p>
                 </div>
                 <p className="text-sm text-muted-foreground">
                   Typical response time: <span className="font-medium text-foreground">within 1 business day</span>.

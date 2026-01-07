@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavBar } from "@/components/ui/tubelight-navbar";
-import { Home, Users, Briefcase, Globe, Trophy, Mail, Menu } from "lucide-react";
+import { Home, Users, Briefcase, Mail, Menu, BriefcaseBusiness, Sparkles } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -9,8 +9,8 @@ const navItems = [
   { name: "Home", url: "#", icon: Home },
   { name: "About", url: "#about", icon: Users },
   { name: "Services", url: "#services", icon: Briefcase },
-  { name: "Global", url: "#global", icon: Globe },
-  { name: "Success", url: "#success", icon: Trophy },
+  { name: "Our Journey", url: "/ceo-journey", icon: Sparkles },
+  { name: "Careers", url: "/careers", icon: BriefcaseBusiness },
   { name: "Contact Us", url: "#contact", icon: Mail },
 ];
 
@@ -22,6 +22,12 @@ const Header = () => {
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     const isHash = href?.startsWith("#");
+    const isRoute = href?.startsWith("/");
+
+    if (isRoute) {
+      navigate(href);
+      return;
+    }
 
     // If we're not on the landing page, navigate to it (supports "/#section") and let ScrollToTop handle scrolling.
     if (location.pathname !== "/") {

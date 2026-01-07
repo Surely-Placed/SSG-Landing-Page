@@ -24,8 +24,8 @@ const Hero = () => {
       backgroundImage={heroImage}
       contactInfo={{
         website: "www.ssg-consultant.com",
-        phone: "+91 98XXX XXXXX",
-        address: "We bridge the gap between Talent and Intent",
+        phone: "+91 99878 15794",
+        address: "Gandhinagar, Gujarat, India",
       }}
     />
   );

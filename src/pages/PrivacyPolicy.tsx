@@ -124,7 +124,7 @@ const PrivacyPolicy = () => {
             </ul>
             <p>
               To exercise these rights, please contact us at{" "}
-              <a href="mailto:privacy@ssg-global.com">privacy@ssg-global.com</a>
+              <a href="mailto:hr@ssggetjob.com">hr@ssggetjob.com</a>
             </p>
 
             <h2>7. Children's Privacy</h2>
@@ -151,16 +151,12 @@ const PrivacyPolicy = () => {
             <h2>10. Contact Us</h2>
             <p>If you have any questions about this Privacy Policy, please contact us:</p>
             <p>
-              Email: <a href="mailto:privacy@ssg-global.com">privacy@ssg-global.com</a>
+              Email: <a href="mailto:hr@ssggetjob.com">hr@ssggetjob.com</a>
             </p>
             <p>
-              Address: SSG Global, Privacy Department
+              Address: SSG Consultant
               <br />
-              Mumbai, India (HQ)
-              <br />
-              Singapore
-              <br />
-              Dubai, UAE
+              Gandhinagar, Gujarat, India
             </p>
           </section>
         </div>

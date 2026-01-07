@@ -22,7 +22,8 @@ const contactSchema = z.object({
 type ContactValues = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
-  const [attachment, setAttachment] = useState<File | null>(null);
+  const [company, setCompany] = useState(""); // honeypot
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<ContactValues>({
     resolver: zodResolver(contactSchema),
@@ -37,30 +38,41 @@ export function ContactForm() {
   });
 
   const onSubmit = async (values: ContactValues) => {
-    const subject = `SSG Contact: ${values.subject}`;
-    const bodyLines = [
-      `Name: ${values.name}`,
-      `Email: ${values.email}`,
-      values.phone ? `Phone: ${values.phone}` : null,
-      attachment ? `Attachment: ${attachment.name} (please attach this file in your email client before sending)` : null,
-      "",
-      values.message,
-    ].filter(Boolean) as string[];
+    setIsSubmitting(true);
+    try {
+      const resp = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          company,
+        }),
+      });
 
-    const mailto = `mailto:contact@ssg-global.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-      bodyLines.join("\n"),
-    )}`;
+      const data = (await resp.json()) as { ok: boolean; error?: string };
+      if (!resp.ok || !data.ok) throw new Error(data.error || "Failed to send");
 
-    // Open the user's email client with a pre-filled message (no broken/static submit).
-    window.location.href = mailto;
-    toast.success("Opening email client…", { description: "Send the message from your mail app to reach us." });
-    form.reset();
-    setAttachment(null);
+      toast.success("Message sent", { description: "We’ll get back to you soon." });
+      form.reset();
+      setCompany("");
+    } catch (e: any) {
+      toast.error("Couldn’t send message", { description: e?.message || "Please try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+        {/* Honeypot (bots fill this) */}
+        <div className="hidden" aria-hidden="true">
+          <label>
+            Company
+            <input value={company} onChange={(e) => setCompany(e.target.value)} tabIndex={-1} autoComplete="off" />
+          </label>
+        </div>
+
         <div className="grid gap-5 sm:grid-cols-2">
           <FormField
             control={form.control}
@@ -135,21 +147,9 @@ export function ContactForm() {
           )}
         />
 
-        <div className="space-y-2">
-          <FormLabel>Attachment (optional)</FormLabel>
-          <Input
-            type="file"
-            onChange={(e) => setAttachment(e.target.files?.[0] ?? null)}
-            aria-describedby="attachment-help"
-          />
-          <p id="attachment-help" className="text-xs text-muted-foreground">
-            We’ll open your email client. Please attach the file there before sending.
-          </p>
-        </div>
-
         <div className="pt-2">
-          <Button type="submit" className="w-full sm:w-auto">
-            Send message
+          <Button type="submit" className="w-full sm:w-auto" disabled={isSubmitting}>
+            {isSubmitting ? "Sending…" : "Send message"}
           </Button>
         </div>
       </form>

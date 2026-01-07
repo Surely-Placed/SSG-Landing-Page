@@ -11,15 +11,13 @@ const SuccessStories = () => {
           <span className="text-sm font-semibold uppercase tracking-wider text-accent">
             About Us · Our Mission
           </span>
-          <div className="mt-4">
-            <BlurText
-              text="We are here to bridge the gap between Talent and Intent"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              repeat
-              className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
-            />
+          <div className="mt-5">
+            <h2 className="mx-auto max-w-4xl text-balance font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.05]">
+              We are here to bridge the gap between{" "}
+              <span className="text-primary">Talent</span> and{" "}
+              <span className="text-primary">Intent</span>
+            </h2>
+            <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-primary/70" />
           </div>
           <p className="mt-4 text-lg text-muted-foreground">
             We optimize human potential through Strategic Intervention and Technological Synergy — a high-performance ecosystem designed for polymaths.
