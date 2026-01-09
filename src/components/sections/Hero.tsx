@@ -23,7 +23,7 @@ const Hero = () => {
       }}
       backgroundImage={heroImage}
       contactInfo={{
-        website: "www.ssg-consultant.com",
+        website: "https://sgg-corporation.com",
         phone: "+91 99878 15794",
         address: "Gandhinagar, Gujarat, India",
       }}

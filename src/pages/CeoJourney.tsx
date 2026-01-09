@@ -133,7 +133,7 @@ export default function CeoJourney() {
             }}
             backgroundImage={heroBg}
             contactInfo={{
-              website: "www.ssg-consultant.com",
+              website: "https://sgg-corporation.com",
               phone: "+91 99878 15794",
               address: "Gandhinagar, Gujarat, India",
             }}
