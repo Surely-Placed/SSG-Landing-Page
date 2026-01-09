@@ -68,5 +68,17 @@ export default defineConfig(({ mode }) => {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // SVGs used as hero background images include `url(#id)` references (gradients/filters).
+    // When these SVGs are inlined as data URIs, `#` fragments can break parsing and the image
+    // can render as blank in production.
+    // Fix: never inline just the service hero SVGs; emit them as real files in `dist/assets`.
+    assetsInlineLimit: (filePath, content) => {
+      const normalized = filePath.split(path.sep).join("/");
+      if (normalized.includes("src/assets/services/") && normalized.endsWith(".svg")) return false;
+      // Default Vite behavior (4KB)
+      return content.byteLength < 4096;
+    },
+  },
   });
 });
