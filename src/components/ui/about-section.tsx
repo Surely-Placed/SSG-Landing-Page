@@ -233,7 +233,18 @@ export default function AboutSection3() {
                 timelineRef={heroRef}
                 customVariants={revealVariants}
                 className="bg-foreground hover:bg-foreground/90 shadow-lg shadow-foreground/20 border border-border flex w-fit ml-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-background px-5 py-3 rounded-lg cursor-pointer font-semibold"
-                onClick={() => navigate("/?section=contact")}
+                type="button"
+                onClick={() => {
+                  // Prefer a direct scroll (works even if the URL is already the same),
+                  // fall back to route navigation so ScrollToTop can handle it.
+                  const el = document.getElementById("contact");
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 96;
+                    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+                    return;
+                  }
+                  navigate("/?section=contact");
+                }}
               >
                 LET'S COLLABORATE <ArrowRight className="" />
               </TimelineContent>

@@ -2,6 +2,7 @@ import React from 'react';
 import { cn } from "@/lib/utils";
 import { motion, type Variants, type Easing } from 'framer-motion';
 import { CountAnimation } from "@/components/ui/count-animation";
+import { useLocation } from "react-router-dom";
 
 // Icon component for contact details
 const InfoIcon = ({ type }: { type: 'website' | 'phone' | 'address' }) => {
@@ -59,6 +60,7 @@ interface HeroSectionProps extends Omit<React.ComponentPropsWithoutRef<'div'>, '
 
 const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
   ({ className, logo, slogan, title, subtitle, callToAction, backgroundImage, contactInfo, stats, ...props }, ref) => {
+    const location = useLocation();
     // Animation variants for the container to orchestrate children animations
     const containerVariants: Variants = {
       hidden: { opacity: 0 },
@@ -129,8 +131,23 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                     <motion.p className="mb-8 max-w-md text-base text-muted-foreground lg:text-lg" variants={itemVariants}>
                         {subtitle}
                     </motion.p>
-                    <motion.a 
-                      href={callToAction.href} 
+                    {/*
+                      NOTE: This app uses HashRouter, so plain hash anchors like "#contact"
+                      would overwrite the router hash (e.g. "#/") and break navigation in prod.
+                      We translate "#section" → "#<currentPath>?section=section" which ScrollToTop handles.
+                    */}
+                    <motion.a
+                      href={(() => {
+                        const href = callToAction.href;
+                        const currentPath = location.pathname || "/";
+
+                        if (href === "#") return `#${currentPath}`;
+                        if (href.startsWith("#")) {
+                          const section = href.slice(1);
+                          return `#${currentPath}?section=${encodeURIComponent(section)}`;
+                        }
+                        return href;
+                      })()}
                       className="inline-block text-lg font-bold tracking-widest text-primary transition-colors hover:text-primary/80 mb-8" 
                       variants={itemVariants}
                     >

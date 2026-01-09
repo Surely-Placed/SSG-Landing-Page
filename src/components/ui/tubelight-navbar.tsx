@@ -56,7 +56,7 @@ export function NavBar({ items, className }: NavBarProps) {
       for (let i = items.length - 1; i >= 0; i--) {
         const url = items[i].url;
         // Only track hash sections (avoid trying to querySelector on routes like "/careers")
-        if (url?.startsWith("#")) {
+        if (url?.startsWith("#") && url.length > 1) {
           const element = document.querySelector(url);
           if (element) {
             const elementTop = element.getBoundingClientRect().top + window.scrollY;
