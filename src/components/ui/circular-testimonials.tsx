@@ -135,6 +135,26 @@ export default function CircularTestimonials({
     exit: { opacity: 0, y: -16 },
   };
 
+  // This app uses HashRouter in production. Plain absolute paths like "/services/xyz" can break
+  // when deployed as a static site because the server doesn't know those routes.
+  // Fix: for internal links, prefix with "#" so routing stays client-side.
+  const resolveHref = useCallback((href: string) => {
+    const trimmed = href.trim();
+    if (!trimmed) return trimmed;
+
+    // External / special protocols
+    if (/^(https?:)?\/\//i.test(trimmed)) return trimmed;
+    if (/^(mailto:|tel:)/i.test(trimmed)) return trimmed;
+
+    // Already a hash link
+    if (trimmed.startsWith("#")) return trimmed;
+
+    // Internal absolute path → HashRouter path
+    if (trimmed.startsWith("/")) return `#${trimmed}`;
+
+    return trimmed;
+  }, []);
+
   if (!testimonials?.length) return null;
 
   return (
@@ -216,7 +236,7 @@ export default function CircularTestimonials({
             {active.href && (
               <a
                 className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-2 text-sm font-semibold text-foreground shadow-soft backdrop-blur-md transition-colors hover:bg-muted"
-                href={active.href}
+                href={resolveHref(active.href)}
               >
                 {active.ctaText || "Learn more"} <span aria-hidden="true">→</span>
               </a>
